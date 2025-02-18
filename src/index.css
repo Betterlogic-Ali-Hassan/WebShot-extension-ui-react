@@ -1,0 +1,187 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Roboto", serif;
+  min-height: 100vh;
+}
+
+@layer base {
+  :root {
+    --text-dark: #000;
+    --bg-default: #fff;
+    --bg-light: #e5e5e5;
+    --half-white: #f2f2f2;
+    --bg-card: #fff;
+    --border: #b2b2b2;
+    --alert: #fef7ee;
+    --alert-icon: #ffe7cb;
+    --select: #fff;
+    --card-border: #b2b2b2;
+  }
+
+  .dark {
+    --text-dark: #fff;
+    --bg-default: #111;
+    --bg-light: #555;
+    --half-white: #444;
+    --bg-card: #333;
+    --border: #333;
+    --alert: #555;
+    --alert-icon: #a6754c;
+    --select: #444;
+    --card-border: #fff;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-bg text-dark;
+  }
+}
+h4,
+.font-medium {
+  font-weight: 400 !important;
+}
+.high-shadow {
+  box-shadow: 0 16px 24px 2px rgba(0, 0, 0, 0.14),
+    0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.4);
+}
+.scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scroll-bar::-webkit-scrollbar-track {
+  background-color: white;
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+  background-color: #cccc;
+  height: 40px;
+  border-radius: 12px;
+}
+.swiper-button-next,
+.swiper-button-prev {
+  display: none !important;
+}
+.swiper-wrapper {
+  display: flex;
+}
+.img::-webkit-scrollbar {
+  width: 7px;
+  margin-top: 100px;
+}
+
+.img::-webkit-scrollbar-track {
+  background-color: var(--bg-light);
+  margin-top: 105px;
+}
+
+.img::-webkit-scrollbar-thumb {
+  background-color: #999;
+  height: 40px;
+  border-radius: 4px;
+}
+.img {
+  overflow-y: auto;
+  padding-top: 120px;
+}
+.react-colorful__pointer {
+  height: 16px !important;
+  width: 16px !important;
+}
+.chrome-picker {
+  box-shadow: none !important;
+}
+#rc-editable-input-2 {
+  padding: 16px 8px;
+  font-size: 14px !important;
+  font-weight: 500;
+}
+.flexbox-fix {
+  gap: 6px;
+}
+.optionCardShadow {
+  box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.04);
+}
+.support-item {
+  background-size: 990px auto;
+  border-radius: 3px;
+  display: inline-block;
+  height: 26px;
+  margin-left: 12px;
+  opacity: 1;
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+  width: 68px;
+}
+.slack {
+  background-position: 0 0;
+}
+.trello {
+  background-position: -68px 0 !important;
+}
+.asana {
+  background-position: -136px 0 !important;
+}
+.github {
+  background-position: -272px 0 !important;
+}
+.jira {
+  background-position: -476px 0 !important;
+}
+.gmail {
+  background-position: -68px 0 !important;
+}
+.icon:hover {
+  background: #ccc;
+}
+/* Increase thumb size */
+.sketch-picker .hue-horizontal .slider,
+.sketch-picker .alpha .slider {
+  width: 20px !important; /* Increase the width */
+  height: 20px !important; /* Increase the height */
+  border-radius: 50% !important; /* Make them circular */
+}
+
+/* Optional: Customize the slider thumb color */
+.sketch-picker .hue-horizontal .slider,
+.sketch-picker .alpha .slider {
+  background-color: #000 !important; /* Set color to black */
+  border: 2px solid #fff !important; /* Add a white border */
+}
+.flexbox-fix {
+  gap: 0 !important;
+  border-color: var(--bg-light) !important;
+}
+
+#rc-editable-input-2 {
+  font-size: 11px !important;
+  width: 100% !important;
+  color: var(--text-dark) !important ;
+}
+label[for="rc-editable-input-2"] {
+  color: var(--text-dark) !important ;
+}
+#rc-editable-input-4,
+#rc-editable-input-6,
+#rc-editable-input-8,
+#rc-editable-input-10 {
+  width: 90% !important;
+}
+
+.hide-cursor,
+.hide-cursor * {
+  cursor: none !important;
+}
+.tool,
+header {
+  cursor: default;
+}
