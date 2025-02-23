@@ -1,4 +1,3 @@
-import React from "react";
 import StatusFilter from "./StatusFilter";
 import PriceFilter from "./PriceFilter";
 import Currency from "./Currency";

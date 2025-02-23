@@ -1,11 +1,6 @@
 import React from "react";
 import { IoFilter } from "react-icons/io5";
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import StatusFilter from "./StatusFilter";
 import PriceFilter from "./PriceFilter";
 import Currency from "./Currency";

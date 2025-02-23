@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { ChevronDown, ChevronUp, X } from "lucide-react";
 import { MdOutlineSearch } from "react-icons/md";
 import { Input } from "../ui/input";
@@ -6,12 +6,12 @@ import { Checkbox } from "../ui/checkbox";
 const Currency = () => {
   const [open, setOpen] = useState(false);
   const [input, setInput] = useState("");
-  const handleChange = (event: any) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput(event.target.value);
   };
 
   return (
-    <div className={` mt-4`}>
+    <div className='mt-4'>
       <div
         className='flex items-center justify-between cursor-pointer hover:bg-[#f2f2f2] h-12 rounded-[10px]  mb-2 px-3'
         onClick={() => setOpen(!open)}

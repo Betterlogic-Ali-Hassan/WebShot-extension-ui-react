@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 const tabs = [
   {
     id: 1,
@@ -20,12 +20,13 @@ const tabs = [
 ];
 const ImagesTabs = () => {
   const [selectedItem, setSelectedItem] = useState(tabs[0].id);
-  const handleClick = (id: any) => {
+
+  const handleClick = (id: number) => {
     setSelectedItem(id);
   };
   return (
     <div>
-      <div className="flex items-center mt-6 px-4">
+      <div className='flex items-center mt-6 px-4'>
         {tabs.map((tab) => (
           <button
             onClick={() => handleClick(tab.id)}

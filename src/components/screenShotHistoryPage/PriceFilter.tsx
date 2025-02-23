@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import {
   Select,
@@ -12,13 +12,12 @@ import { Button } from "../ui/button";
 const data = ["SOL", "ETH", "USD"];
 const PriceFilter: React.FC = () => {
   const [open, setOpen] = useState(false);
-  const [disable, setDisable] = useState(false);
   const [input1, setInput1] = useState("");
   const [input2, setInput2] = useState("");
-  const handleChange1 = (event: any) => {
+  const handleChange1 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput1(event.target.value);
   };
-  const handleChange2 = (event: any) => {
+  const handleChange2 = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInput2(event.target.value);
   };
 
