@@ -19,52 +19,48 @@ const ListView = ({ filter }: Props) => {
     <div className='px-4 mt-6'>
       <Table className='w-full'>
         <TableHeader>
-          <TableRow className='bg-transparent hover:bg-white'>
+          <TableRow className='bg-transparent hover:bg-bg'>
             <TableHead
-              className={`${
-                filter
-                  ? "min-[1400px]:w-[400px] w-[200px]"
-                  : " min-[1400px]:w-[400px]  w-[300px]"
-              }  text-[#545454] font-medium `}
+              className={cn(
+                "min-[1400px]:w-[400px] w-[200px] text-dark font-medium",
+                !filter && "min-[1400px]:w-[400px]  w-[300px]"
+              )}
             >
               Item
             </TableHead>
             <TableHead
               className={cn(
-                "text-[#545454] font-medium whitespace-nowrap min-[1400px]:w-[200px] w-[160px]",
-                filter && "min-[1400px]:w-[300px] w-[200px]"
+                "text-dark font-medium whitespace-nowrap min-[1400px]:w-[200px] w-[160px]",
+                !filter && "min-[1400px]:w-[300px] w-[200px]"
               )}
             >
               Current Price
             </TableHead>
             <TableHead
-              className={` ${
-                filter
-                  ? "w-[160px] min-[1400px]:w-[200px]"
-                  : "min-[1400px]:w-[300px] w-[200px]"
-              }  text-[#545454] font-medium`}
+              className={cn(
+                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium",
+                !filter && "min-[1400px]:w-[300px] w-[200px]"
+              )}
             >
               Best Offer
             </TableHead>
             <TableHead
-              className={` ${
-                filter
-                  ? "w-[160px] min-[1400px]:w-[200px]"
-                  : "min-[1400px]:w-[300px] w-[200px]"
-              }  text-[#545454] font-medium`}
+              className={cn(
+                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium",
+                !filter && "min-[1400px]:w-[300px] w-[200px]"
+              )}
             >
               Last Sale
             </TableHead>
             <TableHead
-              className={` ${
-                filter
-                  ? "w-[160px] min-[1400px]:w-[200px]"
-                  : "min-[1400px]:w-[300px] w-[200px]"
-              }  text-[#545454] font-medium`}
+              className={cn(
+                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium",
+                !filter && "min-[1400px]:w-[300px] w-[200px]"
+              )}
             >
               Owner
             </TableHead>
-            <TableHead className='text-[#545454] font-medium whitespace-nowrap'>
+            <TableHead className='text-dark font-medium whitespace-nowrap'>
               Time Listed
             </TableHead>
           </TableRow>
@@ -75,7 +71,7 @@ const ListView = ({ filter }: Props) => {
               <TableCell className='flex  items-center '>
                 <Checkbox
                   id='eth'
-                  className='h-6 w-6 rounded-md border-[#1212121e] border mr-[40px]'
+                  className='h-6 w-6 rounded-md border-border border mr-[40px]'
                 />
                 <div className='flex items-center gap-2'>
                   <img

@@ -21,7 +21,7 @@ const Selection = () => {
     <div>
       <div className='max-lg:hidden'>
         <Select>
-          <SelectTrigger className='w-[240px] h-12 font-semibold rounded-[10px] hover:border-[#B2B2B2] transition duration-300 text-[16px]'>
+          <SelectTrigger className='w-[240px] h-12 font-semibold rounded-[10px] hover:border-border transition duration-300 text-[16px]'>
             <SelectValue placeholder='Price low to high' />
           </SelectTrigger>
           <SelectContent className='p-2'>
@@ -29,7 +29,7 @@ const Selection = () => {
               <SelectItem
                 key={i}
                 value={option.label}
-                className='font-semibold text-[16px] p-4 flex justify-between items-center'
+                className='font-semibold text-[16px] p-4 rounded-lg flex justify-between items-center'
               >
                 {option.label}
               </SelectItem>
@@ -40,7 +40,7 @@ const Selection = () => {
       <div className='min-lg:hidden'>
         <Sheet>
           <SheetTrigger className='min-[1024px]:hidden'>
-            <div className='p-3 bg-[#f2f2f2] rounded-[12px] min-lg:hidden '>
+            <div className='p-3 bg-secondary rounded-[12px] min-lg:hidden '>
               <HiMiniArrowsUpDown size={22} />
             </div>
           </SheetTrigger>
@@ -52,7 +52,7 @@ const Selection = () => {
                   <li
                     key={i}
                     onClick={() => handleOptionChange(option.id)}
-                    className='flex justify-between items-center font-semibold text-[16px] p-4 hover:bg-[#f2f2f2] rounded-md'
+                    className='flex justify-between items-center font-semibold text-[16px] p-4 hover:bg-secondary rounded-md'
                   >
                     {option.label}
                     {selectedSheetOption === option.id && <FaCheck size={16} />}

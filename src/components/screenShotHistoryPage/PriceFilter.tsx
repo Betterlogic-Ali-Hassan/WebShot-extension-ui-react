@@ -24,7 +24,7 @@ const PriceFilter: React.FC = () => {
   return (
     <div className={` ${open ? "pb-1 border-b" : ""} mt-4`}>
       <div
-        className='flex items-center justify-between cursor-pointer hover:bg-[#f2f2f2] h-12 rounded-[10px]  mb-2 px-3'
+        className='flex items-center justify-between cursor-pointer hover:bg-secondary h-12 rounded-[10px]  mb-2 px-3'
         onClick={() => setOpen(!open)}
       >
         <span className='text-[16px] font-semibold'>Price</span>
@@ -36,7 +36,7 @@ const PriceFilter: React.FC = () => {
         <>
           <div className='flex items-center flex-wrap py-3  gap-3'>
             <Select>
-              <SelectTrigger className=' w-full py-3 pl-4 pr-3 h-12  font-semibold rounded-[10px] hover:border-[#B2B2B2] transition duration-300 text-[16px]'>
+              <SelectTrigger className=' w-full py-3 pl-4 pr-3 h-12  font-semibold rounded-[10px] hover:border-border transition duration-300 text-[16px]'>
                 <SelectValue placeholder='SOL' />
               </SelectTrigger>
               <SelectContent className='p-2'>
@@ -44,7 +44,7 @@ const PriceFilter: React.FC = () => {
                   <SelectItem
                     key={item}
                     value={item}
-                    className='font-semibold text-[16px] p-4'
+                    className='font-semibold text-[16px] p-4 rounded-lg'
                   >
                     {item}
                   </SelectItem>
@@ -60,7 +60,7 @@ const PriceFilter: React.FC = () => {
                   value={input1}
                   type='number'
                   placeholder='Min'
-                  className='min-w-[102px] rounded-[12px] h-12 hover:border-[#B2B2B2] transition duration-300'
+                  className='min-w-[102px] rounded-[12px] bg-secondary h-12 hover:border-border transition duration-300'
                 />
               </div>
               <span className='text-[16px]'>to</span>
@@ -70,7 +70,7 @@ const PriceFilter: React.FC = () => {
                   value={input2}
                   type='number'
                   placeholder='Max'
-                  className='min-w-[102px]  rounded-[12px] h-12 hover:border-[#B2B2B2] transition duration-300'
+                  className='min-w-[102px] bg-secondary  rounded-[12px] h-12 hover:border-border transition duration-300'
                 />
               </div>
             </div>

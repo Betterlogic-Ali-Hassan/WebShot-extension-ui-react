@@ -13,7 +13,7 @@ const Filter = ({ setFilter, filter }: Props) => {
   return (
     <>
       <div
-        className='bg-[#f2f2f2] rounded-[10px] p-3 cursor-pointer max-lg:hidden'
+        className='bg-secondary rounded-[10px] p-3 cursor-pointer max-lg:hidden'
         onClick={() => setFilter(!filter)}
       >
         <span>
@@ -24,7 +24,7 @@ const Filter = ({ setFilter, filter }: Props) => {
         <Sheet>
           <SheetTrigger>
             <div
-              className='bg-[#f2f2f2] rounded-[10px] p-3 cursor-pointer'
+              className='bg-secondary rounded-[10px] p-3 cursor-pointer'
               onClick={() => setFilter(!filter)}
             >
               <span>

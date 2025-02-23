@@ -1,4 +1,5 @@
 "use client";
+import { cn } from "@/lib/utils";
 import { useState } from "react";
 const tabs = [
   {
@@ -31,12 +32,10 @@ const ImagesTabs = () => {
           <button
             onClick={() => handleClick(tab.id)}
             key={tab.id}
-            className={` font-semibold py-3 px-6 text-[16px] rounded-[10px]
-            ${
-              selectedItem === tab.id
-                ? "bg-[#f2f2f2] text-black"
-                : "text-[#535353]"
-            }  hover:text-black`}
+            className={cn(
+              "font-semibold py-3 px-6 text-[16px] rounded-[10px]  text-border hover:text-dark",
+              selectedItem === tab.id && "bg-dark text-light hover:text-light"
+            )}
           >
             {tab.tab}
           </button>

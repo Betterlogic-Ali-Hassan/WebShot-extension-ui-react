@@ -13,7 +13,7 @@ const Currency = () => {
   return (
     <div className='mt-4'>
       <div
-        className='flex items-center justify-between cursor-pointer hover:bg-[#f2f2f2] h-12 rounded-[10px]  mb-2 px-3'
+        className='flex items-center justify-between cursor-pointer hover:bg-secondary h-12 rounded-[10px]  mb-2 px-3'
         onClick={() => setOpen(!open)}
       >
         <span className='text-[16px] font-semibold'>Currency</span>
@@ -23,7 +23,7 @@ const Currency = () => {
       </div>
       {open && (
         <div className='flex items-center flex-wrap py-3'>
-          <div className='flex items-center p-3 border hover:border-[#B2B2B2] transition duration-300 rounded-xl h-[40px] w-full justify-between'>
+          <div className='flex items-center p-3 border hover:border-border transition duration-300 rounded-xl h-[40px] w-full justify-between'>
             <div className='flex items-center'>
               <MdOutlineSearch size={24} color='#545454' className='mr-2' />
               <Input
@@ -40,7 +40,7 @@ const Currency = () => {
             )}
           </div>
           <div className='mt-3 w-full'>
-            <div className='flex items-center space-x-2 h-[56px] hover:bg-[#f2f2f2] px-2 rounded-[12px] cursor-pointer '>
+            <div className='flex items-center space-x-2 h-[56px] hover:bg-secondary px-2 rounded-[12px] cursor-pointer '>
               <Checkbox id='eth' className='h-6 w-6 rounded-md' />
               <label
                 htmlFor='eth'
@@ -49,7 +49,7 @@ const Currency = () => {
                 ETH
               </label>
             </div>
-            <div className='flex items-center space-x-2 h-[56px] hover:bg-[#f2f2f2] px-2 rounded-[12px]  cursor-pointer'>
+            <div className='flex items-center space-x-2 h-[56px] hover:bg-secondary px-2 rounded-[12px]  cursor-pointer'>
               <Checkbox id='wet' className='h-6 w-6 rounded-md' />
               <label
                 htmlFor='wet'

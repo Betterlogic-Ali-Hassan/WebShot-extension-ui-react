@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface DataItem {
   id: number;
@@ -43,7 +44,7 @@ const StatusFilter: React.FC = () => {
   return (
     <div className={` ${open ? "pb-1 border-b" : ""}`}>
       <div
-        className='flex items-center justify-between cursor-pointer hover:bg-[#f2f2f2] h-12 rounded-[10px]  mb-2 px-3'
+        className='flex items-center justify-between cursor-pointer hover:bg-secondary h-12 rounded-[10px]  mb-2 px-3'
         onClick={() => setOpen(!open)}
       >
         <span className='text-[16px] font-semibold'>Status</span>
@@ -56,11 +57,10 @@ const StatusFilter: React.FC = () => {
           {data.map((item) => (
             <div
               key={item.id}
-              className={`py-2 px-3 rounded-xl cursor-pointer font-semibold text-[16px]  ${
-                isSelected(item.id)
-                  ? "bg-black text-white hover:bg-[#222]"
-                  : "bg-[#f2f2f2] hover:bg-[#e5e5e5]"
-              }`}
+              className={cn(
+                "py-2 px-3 rounded-xl cursor-pointer font-semibold text-[16px] bg-bg text-dark hover:bg-secondary",
+                isSelected(item.id) && "bg-border hover:bg-border"
+              )}
               onClick={() => handleSelect(item)}
             >
               {item.label}
