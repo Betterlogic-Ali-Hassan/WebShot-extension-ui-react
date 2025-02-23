@@ -15,9 +15,14 @@ import { FaRegImage } from "react-icons/fa6";
 interface CardProps {
   onRatingToggle: () => void;
   ratingOpen: boolean;
+  rateIconHide: boolean;
 }
 
-export function CardHeader({ onRatingToggle, ratingOpen }: CardProps) {
+export function CardHeader({
+  onRatingToggle,
+  ratingOpen,
+  rateIconHide,
+}: CardProps) {
   const { theme } = useTheme();
   const mode = theme === "dark" ? "Light Mode" : "Dark Mode";
 
@@ -43,14 +48,17 @@ export function CardHeader({ onRatingToggle, ratingOpen }: CardProps) {
           side='bottom'
           contentClass=' -mt-1'
         />
-        <Tooltip
-          content='Rate Us'
-          trigger={<Rate />}
-          onClick={onRatingToggle}
-          side='bottom'
-          contentClass=' -mt-1'
-          className={ratingOpen ? "bg-light" : ""}
-        />
+        {!rateIconHide && (
+          <Tooltip
+            content='Rate Us'
+            trigger={<Rate />}
+            onClick={onRatingToggle}
+            side='bottom'
+            contentClass=' -mt-1'
+            className={ratingOpen ? "bg-light" : ""}
+          />
+        )}
+
         <Tooltip
           content='Screenshot History'
           trigger={

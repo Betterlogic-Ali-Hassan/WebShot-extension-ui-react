@@ -8,8 +8,9 @@ import RatingHead from "./RatingHead";
 import RateIcons from "./RateIcons";
 interface Props {
   setRatingOpen: (value: boolean) => void;
+  setRateIconHide: (value: boolean) => void;
 }
-export default function Rating({ setRatingOpen }: Props) {
+export default function Rating({ setRatingOpen, setRateIconHide }: Props) {
   const [rating, setRating] = useState(0);
   const [showThanks, setShowThanks] = useState(false);
   const [ratingSelected, setRatingSelected] = useState(false);
@@ -19,6 +20,7 @@ export default function Rating({ setRatingOpen }: Props) {
       window.location.href =
         "https://chromewebstore.google.com/detail/better-history/egehpkpgpgooebopjihjmnpejnjafefi?hl=en";
     } else {
+      setRateIconHide(true);
       setShowThanks(true);
     }
   };

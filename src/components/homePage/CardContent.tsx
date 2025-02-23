@@ -19,10 +19,15 @@ import Alert from "../Alert";
 
 interface CardProps {
   setRatingOpen: (ratingOpen: boolean) => void;
+  setRateIconHide: (value: boolean) => void;
   ratingOpen: boolean;
 }
 
-export function CardContent({ ratingOpen, setRatingOpen }: CardProps) {
+export function CardContent({
+  ratingOpen,
+  setRatingOpen,
+  setRateIconHide,
+}: CardProps) {
   const [alert, setAlert] = useState(true);
   const [screenshot, setScreenshot] = useState(false);
   const [recordVideo, setRecordVideo] = useState(false);
@@ -46,7 +51,9 @@ export function CardContent({ ratingOpen, setRatingOpen }: CardProps) {
   };
 
   if (ratingOpen) {
-    return <Rating setRatingOpen={setRatingOpen} />;
+    return (
+      <Rating setRatingOpen={setRatingOpen} setRateIconHide={setRateIconHide} />
+    );
   }
 
   if (screenshot) {
