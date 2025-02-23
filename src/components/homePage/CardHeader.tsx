@@ -10,6 +10,8 @@ import { useTheme } from "../Theme-provider";
 import Tooltip from "../Tooltip";
 import ModeToggle from "../ModeToggler";
 import { Link } from "react-router";
+import { FaRegImage } from "react-icons/fa6";
+
 interface CardProps {
   onRatingToggle: () => void;
   ratingOpen: boolean;
@@ -48,6 +50,14 @@ export function CardHeader({ onRatingToggle, ratingOpen }: CardProps) {
           side='bottom'
           contentClass=' -mt-1'
           className={ratingOpen ? "bg-light" : ""}
+        />
+        <Tooltip
+          content='Screenshot History'
+          trigger={
+            <Link to='/screenShot-history'>{<FaRegImage size={20} />}</Link>
+          }
+          side='bottom'
+          contentClass=' -mt-1'
         />
         <Tooltip
           content='Settings'
