@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Options from "./pages/Options";
-import ScreenshotHistory from "./pages/screenshotHistory";
+import ScreenshotHistory from "./pages/ScreenshotHistory";
 
 function App() {
   return (
