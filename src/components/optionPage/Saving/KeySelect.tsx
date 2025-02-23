@@ -6,7 +6,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { options } from "../../../../constant/SelectKeysData";
+import { options } from "@/constant/SelectKeysData";
+
 const KeySelect = ({ option }: { option: { id: number; name: string } }) => {
   const [selectedValues, setSelectedValues] = useState<string[]>([
     "1",

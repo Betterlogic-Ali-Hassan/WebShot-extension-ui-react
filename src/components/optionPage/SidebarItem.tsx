@@ -1,27 +1,31 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { Link, useLocation } from "react-router";
+import { SidebarContentKey } from "../../constant/sidebar-content";
+
 interface SidebarItemProps {
   icon: React.ReactNode;
-  label: string;
-  href: string;
+  label: SidebarContentKey;
+  selectedItem: SidebarContentKey;
+  setSelectedItem: (item: SidebarContentKey) => void;
 }
 
-export function SidebarItem({ icon: Icon, label, href }: SidebarItemProps) {
-  const location = useLocation();
-  const isActive = location.pathname === href;
-
+export function SidebarItem({
+  icon: Icon,
+  label,
+  selectedItem,
+  setSelectedItem,
+}: SidebarItemProps) {
   return (
-    <Link
-      to={href}
+    <div
+      onClick={() => setSelectedItem(label)}
       className={cn(
-        "flex items-center gap-4 my-1 p-3 rounded-lg transition-colors relative hover:bg-secondary",
-        isActive && "font-bold bg-secondary"
+        "flex items-center gap-4 my-1 p-3 rounded-lg transition-colors relative hover:bg-secondary cursor-pointer",
+        selectedItem === label && "font-bold bg-secondary"
       )}
     >
       {Icon}
       <span className='text-base'>{label}</span>
-    </Link>
+    </div>
   );
 }

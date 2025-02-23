@@ -1,7 +1,7 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { options } from "../../../../constant/option";
-import { options as option } from "../../../../constant/ScreenShotOptions";
+import { options } from "@/constant/option";
+import { options as option } from "@/constant/ScreenShotOptions";
 import { useState } from "react";
 import ScreenSelect from "./screenshot/ScreenSelect";
 import { Switch } from "@/components/ui/switch";

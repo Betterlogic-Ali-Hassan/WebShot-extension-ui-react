@@ -1,9 +1,9 @@
 "use client";
-import { optionsKey } from "../../../../constant/ScreenShotKey";
 
 import { Label } from "@/components/ui/label";
 import KeySelect from "../Saving/KeySelect";
 import EditPage from "@/components/svgs/EditPage";
+import { optionsKey } from "@/constant/ScreenShotKey";
 
 const HotKeys = () => {
   return (

@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import SmallCard from "@/components/SmallCard";
 import Select from "@/components/Select";
-import { smallCard } from "../../../constant/smallCardData";
+import { smallCard } from "../../constant/smallCardData";
 import Rating from "@/components/Rating/Rating";
 import UploadingBox from "@/components/UploadingBox";
 import { OptionsMenu } from "./OptionMenu";
@@ -52,7 +52,7 @@ export function CardContent({ ratingOpen, setRatingOpen }: CardProps) {
   if (screenshot) {
     return (
       <div className='py-6'>
-        <UploadingBox />
+        <UploadingBox setScreenShot={setScreenshot} />
       </div>
     );
   }

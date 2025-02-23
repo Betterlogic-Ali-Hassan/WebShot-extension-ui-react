@@ -1,11 +1,15 @@
 "use client";
 import { SidebarItem } from "./SidebarItem";
 
-import { navItems } from "../../../constant/nav-item";
+import { navItems } from "../../constant/nav-item";
 import SettingLogo from "../svgs/SettingLogo";
 import { Link } from "react-router";
-
-export function Sidebar() {
+import { SidebarContentKey } from "../../constant/sidebar-content";
+interface SidebarDemoProps {
+  selectedItem: SidebarContentKey;
+  setSelectedItem: (item: SidebarContentKey) => void;
+}
+export function Sidebar({ selectedItem, setSelectedItem }: SidebarDemoProps) {
   return (
     <aside className='w-[335px] max-[1400px]:w-[280px] h-screen px-3 pt-2 pb-3 flex flex-col  border-r sticky top-0 bg-card dark:bg-[#222]'>
       <Link
@@ -18,7 +22,12 @@ export function Sidebar() {
 
       <nav className='flex flex-col '>
         {navItems.map((item) => (
-          <SidebarItem key={item.href} {...item} />
+          <SidebarItem
+            key={item.label}
+            {...item}
+            selectedItem={selectedItem}
+            setSelectedItem={setSelectedItem}
+          />
         ))}
       </nav>
     </aside>

@@ -14,6 +14,7 @@ interface TooltipProps {
   onClick?: () => void;
   className?: string;
   contentClass?: string;
+  side?: "top" | "right" | "bottom" | "left" | undefined;
 }
 
 const Tooltip: React.FC<TooltipProps> = ({
@@ -23,6 +24,7 @@ const Tooltip: React.FC<TooltipProps> = ({
   onClick,
   className,
   contentClass,
+  side,
 }) => (
   <TooltipProvider delayDuration={200}>
     <TooltipBase>
@@ -40,7 +42,7 @@ const Tooltip: React.FC<TooltipProps> = ({
           </div>
         )}
       </TooltipTrigger>
-      <TooltipContent className={cn("bg-bg z-50", contentClass)}>
+      <TooltipContent className={cn("bg-bg z-50", contentClass)} side={side}>
         {content}
       </TooltipContent>
     </TooltipBase>

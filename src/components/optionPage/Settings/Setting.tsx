@@ -1,6 +1,7 @@
 import SwitchToggle from "@/components/SwitchToogle";
-import { settings } from "../../../../constant/screenShotSettingData";
+
 import SettingManage from "./settingManagement/SettingManage";
+import { settings } from "@/constant/screenShotSettingData";
 
 const Setting = () => {
   return (

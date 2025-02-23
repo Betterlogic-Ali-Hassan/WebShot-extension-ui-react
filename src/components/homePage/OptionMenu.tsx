@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { BsThreeDots } from "react-icons/bs";
 import Tooltip from "@/components/Tooltip";
-import { options } from "../../../constant/option";
+import { options } from "../../constant/option";
 import { MenuItem } from "./MenuItem";
 interface Props {
   setRecordVideo: (recordVideo: boolean) => void;

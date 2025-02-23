@@ -3,7 +3,7 @@ import RecordingBtn from "@/components/svgs/RecordingBtn";
 import StartRecording from "@/components/svgs/StartRecording";
 
 import { Button } from "@/components/ui/button";
-import { setting } from "../../../../constant/RecordSetting";
+import { setting } from "../../../constant/RecordSetting";
 import { AiOutlineAudio } from "react-icons/ai";
 import { GoArrowLeft } from "react-icons/go";
 interface Props {

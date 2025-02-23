@@ -29,18 +29,32 @@ export function CardHeader({ onRatingToggle, ratingOpen }: CardProps) {
         </span>
       </CardTitle>
       <div className='flex items-center gap-2'>
-        <Tooltip content={mode} trigger={<ModeToggle />} />
-        <Tooltip content='About Us' trigger={<About />} />
+        <Tooltip
+          content={mode}
+          trigger={<ModeToggle />}
+          side='bottom'
+          contentClass=' -mt-1'
+        />
+        <Tooltip
+          content='About Us'
+          trigger={<About />}
+          side='bottom'
+          contentClass=' -mt-1'
+        />
         <Tooltip
           content='Rate Us'
           trigger={<Rate />}
           onClick={onRatingToggle}
+          side='bottom'
+          contentClass=' -mt-1'
           className={ratingOpen ? "bg-light" : ""}
         />
         <Tooltip
           content='Settings'
+          side='bottom'
+          contentClass='mr-4 -mt-1'
           trigger={
-            <Link to='/options/capture'>
+            <Link to='/options'>
               <Setting />
             </Link>
           }

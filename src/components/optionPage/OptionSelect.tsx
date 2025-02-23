@@ -1,5 +1,6 @@
 "use client";
-import { settings } from "../../../constant/screenShotSettingData";
+
+import { settings } from "@/constant/screenShotSettingData";
 import SwitchToggle from "../SwitchToogle";
 
 export default function OptionSelect() {

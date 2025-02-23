@@ -1,6 +1,10 @@
 import ProgressBar from "./ProgressBar";
+import { Dispatch, SetStateAction } from "react";
 
-const UploadingBox = () => {
+interface Props {
+  setScreenShot: Dispatch<SetStateAction<boolean>>;
+}
+const UploadingBox = ({ setScreenShot }: Props) => {
   return (
     <div className='px-6'>
       <h2 className='text-sm font-semibold text-left mt-1'>Image Uploading</h2>
@@ -12,9 +16,12 @@ const UploadingBox = () => {
         <br />
         For very long pages or infinite scroll pages, you can end the capturing
         manually by clicking &nbsp;
-        <a href='#' className='underline'>
+        <span
+          className='underline cursor-pointer'
+          onClick={() => setScreenShot(false)}
+        >
           Stop.
-        </a>
+        </span>
       </p>
     </div>
   );
