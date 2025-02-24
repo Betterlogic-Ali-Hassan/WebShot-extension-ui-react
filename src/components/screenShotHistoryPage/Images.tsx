@@ -2,12 +2,16 @@
 
 import ImageCard from "./ImageCard";
 import ListView from "./ListView";
-import { images } from "@/constant/AllImages";
+
 interface Props {
   listView: boolean;
+  images: {
+    src: string;
+    title: string;
+  }[];
 }
 
-const Images = ({ listView }: Props) => {
+const Images = ({ listView, images }: Props) => {
   // const breakpointColumnsObj = {
   //   default: filter ? 3 : 4, // Default number of columns
   //   1100: 3, // 2 columns for window width <= 1100px
