@@ -1,9 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import React, { useState } from "react";
-import { BsGrid1X2 } from "react-icons/bs";
 import { IoListSharp } from "react-icons/io5";
-import { MdOutlineGridOn } from "react-icons/md";
 import { RxGrid } from "react-icons/rx";
 
 interface Props {
@@ -12,13 +10,11 @@ interface Props {
 
 const data = [
   { id: 1, icon: <IoListSharp size={24} /> },
-  { id: 2, icon: <MdOutlineGridOn size={24} /> },
-  { id: 3, icon: <RxGrid size={24} /> },
-  { id: 4, icon: <BsGrid1X2 size={22} /> },
+  { id: 2, icon: <RxGrid size={24} /> },
 ];
 
 const ImageGrid = ({ setListView }: Props) => {
-  const [selectedItem, setSelectedItem] = useState(data[2].id);
+  const [selectedItem, setSelectedItem] = useState(data[1].id);
 
   const handleClick = (id: number) => {
     setSelectedItem(id);
@@ -30,7 +26,7 @@ const ImageGrid = ({ setListView }: Props) => {
   };
 
   return (
-    <div className='ml-3 max-sm:hidden'>
+    <div className='ml-3 '>
       <div className='p-0.5 bg-secondary h-12 rounded-xl flex items-center gap-3'>
         {data.map((item) => {
           return (

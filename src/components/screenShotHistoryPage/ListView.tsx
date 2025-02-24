@@ -11,10 +11,7 @@ import { Checkbox } from "../ui/checkbox";
 import { data } from "@/constant/imagesData";
 import { cn } from "@/lib/utils";
 
-interface Props {
-  filter: boolean;
-}
-const ListView = ({ filter }: Props) => {
+const ListView = () => {
   return (
     <div className='px-4 mt-6'>
       <Table className='w-full'>
@@ -22,40 +19,35 @@ const ListView = ({ filter }: Props) => {
           <TableRow className='bg-transparent hover:bg-bg'>
             <TableHead
               className={cn(
-                "min-[1400px]:w-[400px] w-[200px] text-dark font-medium",
-                !filter && "min-[1400px]:w-[400px]  w-[300px]"
+                "min-[1400px]:w-[400px] w-[200px] text-dark font-medium"
               )}
             >
               Item
             </TableHead>
             <TableHead
               className={cn(
-                "text-dark font-medium whitespace-nowrap min-[1400px]:w-[200px] w-[160px]",
-                !filter && "min-[1400px]:w-[300px] w-[200px]"
+                "text-dark font-medium whitespace-nowrap min-[1400px]:w-[200px] w-[160px]"
               )}
             >
               Current Price
             </TableHead>
             <TableHead
               className={cn(
-                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium",
-                !filter && "min-[1400px]:w-[300px] w-[200px]"
+                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium"
               )}
             >
               Best Offer
             </TableHead>
             <TableHead
               className={cn(
-                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium",
-                !filter && "min-[1400px]:w-[300px] w-[200px]"
+                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium"
               )}
             >
               Last Sale
             </TableHead>
             <TableHead
               className={cn(
-                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium",
-                !filter && "min-[1400px]:w-[300px] w-[200px]"
+                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium"
               )}
             >
               Owner
