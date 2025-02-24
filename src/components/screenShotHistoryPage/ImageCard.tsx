@@ -16,13 +16,13 @@ const ImageCard = ({ imgSrc, title }: { imgSrc: string; title: string }) => {
   return (
     <div className='relative overflow-hidden rounded-lg group break-inside-avoid mb-5'>
       <div
-        className='relative overflow-hidden cursor-zoom-in '
+        className='relative overflow-hidden cursor-zoom-in break-inside-avoid '
         onClick={() => setIsDialogOpen(true)}
       >
         <img
           src={imgSrc}
           alt={title}
-          className='w-full h-auto max-w-full object-cover rounded-[12px]'
+          className='w-full h-auto max-w-full object-cover rounded-[16px]'
         />
         {/* Overlay */}
         <div className='absolute inset-0 bg-black bg-opacity-50 p-4 rounded-[16px] flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out'>
