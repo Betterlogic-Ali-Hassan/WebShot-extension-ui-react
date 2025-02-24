@@ -25,7 +25,7 @@ const Images = ({ listView, images }: Props) => {
         {listView ? (
           <ListView />
         ) : (
-          <div className='columns-4 gap-x-[16px] max-[1200px]:columns-3 max-md:columns-2  max-[400px]:columns-1'>
+          <div className='columns-5  max-[1200px]:columns-3 max-md:columns-2  max-[400px]:columns-1'>
             {images.map((image, index) => (
               <ImageCard key={index} imgSrc={image.src} title={image.title} />
             ))}

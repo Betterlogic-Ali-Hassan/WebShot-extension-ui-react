@@ -14,7 +14,7 @@ const ImageCard = ({ imgSrc, title }: { imgSrc: string; title: string }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
-    <div className='relative overflow-hidden rounded-lg group break-inside-avoid mb-5'>
+    <div className='relative overflow-hidden rounded-lg group break-inside-avoid mb-3'>
       <div
         className='relative overflow-hidden cursor-zoom-in break-inside-avoid '
         onClick={() => setIsDialogOpen(true)}
@@ -22,7 +22,7 @@ const ImageCard = ({ imgSrc, title }: { imgSrc: string; title: string }) => {
         <img
           src={imgSrc}
           alt={title}
-          className='w-full h-auto max-w-full object-cover rounded-[16px]'
+          className='w-full max-h-[450px] h-auto max-w-full  object-cover rounded-[16px]'
         />
         {/* Overlay */}
         <div className='absolute inset-0 bg-black bg-opacity-50 p-4 rounded-[16px] flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out'>

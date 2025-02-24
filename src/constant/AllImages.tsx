@@ -1,6 +1,6 @@
 export const images = [
   {
-    src: "https://plus.unsplash.com/premium_photo-1680948516222-e8bdb17212cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8YmVhdXRpZnVsJTIwcGxhY2V8ZW58MHx8MHx8fDA%3D",
+    src: "https://i.pinimg.com/236x/85/c4/42/85c442f5b4fd9b8c9a2d8a322d75a1ad.jpg",
     title: "Image 1",
   },
   {
