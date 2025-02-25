@@ -23,7 +23,7 @@ const ImageCard = ({
   imgSrc,
   title,
   handleDeleteData,
-  url,
+
   handleDownload,
 }: Props) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -52,7 +52,7 @@ const ImageCard = ({
           </div>
           <div className='flex absolute bottom-4 justify-between w-full pr-6'>
             <span className='rounded-full py-[6px] px-4 bg-secondary font-semibold cursor-pointer text-sm flex items-center justify-center hover:bg-bg'>
-              {url}
+              twitter.com
             </span>
             <div className='flex items-center space-x-2'>
               <Button

@@ -11,6 +11,7 @@ const ScreenshotHistory = () => {
   const [listView, setListView] = useState(false);
   const [searchValue, setSearchValue] = useState("");
   const [updatedImagesData, setUpdatedImagesData] = useState(images);
+
   const handleDeleteData = (title: string) => {
     const updatedImages = updatedImagesData.filter(
       (image) => image.title !== title
@@ -22,11 +23,11 @@ const ScreenshotHistory = () => {
   );
   const handleDownload = useCallback(
     async (url: string, imageTitle: string) => {
+      toast({
+        description: <DownloadToast fileName={imageTitle} />,
+        duration: 6000,
+      });
       try {
-        toast({
-          description: <DownloadToast fileName={imageTitle} />,
-          duration: 6000,
-        });
         setTimeout(async () => {
           const response = await fetch(url);
           const blob = await response.blob();
