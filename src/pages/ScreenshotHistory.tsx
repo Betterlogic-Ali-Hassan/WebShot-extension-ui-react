@@ -1,9 +1,11 @@
 "use client";
+import DownloadToast from "@/components/screenShotHistoryPage/DownloadToast";
 import Images from "@/components/screenShotHistoryPage/Images";
 import Topbar from "@/components/screenShotHistoryPage/Topbar";
 import { images } from "@/constant/AllImages";
-import { data } from "@/constant/imagesData";
-import { useState } from "react";
+import { toast } from "@/hooks/use-toast";
+import FileSaver from "file-saver";
+import { useCallback, useState } from "react";
 
 const ScreenshotHistory = () => {
   const [listView, setListView] = useState(false);
@@ -18,9 +20,25 @@ const ScreenshotHistory = () => {
   const filteredImages = updatedImagesData.filter((image) =>
     image.title.toLowerCase().includes(searchValue.toLowerCase())
   );
-  const tableImagesFilter = data.filter((image) =>
-    image.title.toLowerCase().includes(searchValue.toLowerCase())
+  const handleDownload = useCallback(
+    async (url: string, imageTitle: string) => {
+      try {
+        toast({
+          description: <DownloadToast fileName={imageTitle} />,
+          duration: 6000,
+        });
+        setTimeout(async () => {
+          const response = await fetch(url);
+          const blob = await response.blob();
+          FileSaver.saveAs(blob, `image-${Date.now()}.png`);
+        }, 5000);
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [toast]
   );
+
   return (
     <div>
       <Topbar
@@ -29,9 +47,9 @@ const ScreenshotHistory = () => {
         setSearchValue={setSearchValue}
       />
       <Images
-        tableData={tableImagesFilter}
+        handleDownload={handleDownload}
+        imagesData={filteredImages}
         listView={listView}
-        images={filteredImages}
         handleDeleteData={handleDeleteData}
       />
     </div>

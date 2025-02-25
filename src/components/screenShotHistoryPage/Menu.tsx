@@ -9,15 +9,37 @@ import { LucideMoreHorizontal } from "lucide-react";
 import { MdContentCopy, MdEdit } from "react-icons/md";
 import { IoMdArrowDown, IoMdShare } from "react-icons/io";
 import { cn } from "@/lib/utils";
+import { useToast } from "@/hooks/use-toast";
+import CopyToast from "./CopyToast";
 
-const Menu = ({ className }: { className?: string }) => {
-  const handleStopPropagation = (event: React.MouseEvent<HTMLDivElement>) => {
+import ShareToast from "./ShareLink";
+interface Props {
+  handleDownload: (url: string, imageTitle: string) => Promise<void>;
+  className?: string;
+  title: string;
+  url: string;
+}
+const Menu = ({ className, title, url, handleDownload }: Props) => {
+  const { toast } = useToast();
+  const handleCopy = (event: React.MouseEvent<HTMLDivElement>) => {
+    navigator.clipboard.writeText(url);
+    toast({
+      description: <CopyToast />,
+      duration: 3000,
+    });
     event.stopPropagation();
   };
 
+  const handleShare = (event: React.MouseEvent<HTMLDivElement>) => {
+    toast({
+      description: <ShareToast />,
+      duration: 6000,
+    });
+    event.stopPropagation();
+  };
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+    <DropdownMenu modal={false}>
+      <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
         <Button
           className={cn(
             "rounded-full h-9 w-9 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0",
@@ -32,28 +54,31 @@ const Menu = ({ className }: { className?: string }) => {
       <DropdownMenuContent className='bg-bg'>
         <DropdownMenuItem
           className='flex items-center gap-2'
-          onClick={handleStopPropagation}
+          onClick={(e) => e.stopPropagation()}
         >
           <MdEdit size={18} />
           Edit
         </DropdownMenuItem>
         <DropdownMenuItem
           className='flex items-center gap-2'
-          onClick={handleStopPropagation}
+          onClick={handleShare}
         >
           <IoMdShare size={18} />
           Share
         </DropdownMenuItem>
         <DropdownMenuItem
           className='flex items-center gap-2'
-          onClick={handleStopPropagation}
+          onClick={(e: React.MouseEvent<HTMLDivElement>) => {
+            handleDownload(url, title);
+            e.stopPropagation();
+          }}
         >
           <IoMdArrowDown size={18} />
           Download
         </DropdownMenuItem>
         <DropdownMenuItem
           className='flex items-center gap-2'
-          onClick={handleStopPropagation}
+          onClick={handleCopy}
         >
           <MdContentCopy size={18} />
           Copy

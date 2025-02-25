@@ -11,51 +11,35 @@ import { Checkbox } from "../ui/checkbox";
 import { cn } from "@/lib/utils";
 import Menu from "./Menu";
 interface Props {
-  tableData: {
-    id: number;
-    imgSrc: string;
+  imagesData: {
+    src: string;
     title: string;
     projectTag: string;
     domain: string;
     date: string;
   }[];
+  handleDownload: (url: string, imageTitle: string) => Promise<void>;
 }
-const ListView = ({ tableData }: Props) => {
+const ListView = ({ imagesData, handleDownload }: Props) => {
   return (
     <div className='px-4 mt-6'>
       <Table className='w-full'>
         <TableHeader>
           <TableRow className='bg-transparent hover:bg-bg'>
-            <TableHead
-              className={cn("min-[1400px]:w-[400px] w-[200px] text-dark ")}
-            >
-              Item
-            </TableHead>
-            <TableHead
-              className={cn(
-                "text-dark  whitespace-nowrap min-[1400px]:w-[200px] w-[160px]"
-              )}
-            >
+            <TableHead className={cn("w-[30%] text-dark ")}>Item</TableHead>
+            <TableHead className={cn("text-dark  whitespace-nowrap w-[20%]")}>
               Domain
             </TableHead>
-            <TableHead
-              className={cn("w-[160px] min-[1400px]:w-[200px] text-dark ")}
-            >
-              Date
-            </TableHead>
-            <TableHead
-              className={cn("w-[160px] min-[1400px]:w-[200px] text-dark ")}
-            >
+            <TableHead className={cn("w-[20%] text-dark ")}>Date</TableHead>
+            <TableHead className={cn(" w-[25%] text-dark ")}>
               Project Tag
             </TableHead>
-            <TableHead
-              className={cn("w-[160px] min-[1400px]:w-[200px] text-dark ")}
-            ></TableHead>
+            <TableHead className={cn("w-[20%] text-dark ")}></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {tableData.map((item) => (
-            <TableRow key={item.id}>
+          {imagesData.map((item, i) => (
+            <TableRow key={i}>
               <TableCell className='flex  items-center '>
                 <Checkbox
                   id='img'
@@ -63,7 +47,7 @@ const ListView = ({ tableData }: Props) => {
                 />
                 <div className='flex items-center gap-2'>
                   <img
-                    src={item.imgSrc}
+                    src={item.src}
                     alt={item.title}
                     height={40}
                     width={40}
@@ -88,7 +72,12 @@ const ListView = ({ tableData }: Props) => {
                 {item.projectTag}
               </TableCell>
               <TableCell className=' whitespace-nowrap'>
-                <Menu className='bg-transparent hover:bg-secondary' />
+                <Menu
+                  className='bg-transparent hover:bg-secondary'
+                  handleDownload={handleDownload}
+                  title={item.title}
+                  url={item.src}
+                />
               </TableCell>
             </TableRow>
           ))}

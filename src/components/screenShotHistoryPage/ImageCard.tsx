@@ -15,9 +15,17 @@ interface Props {
   imgSrc: string;
   title: string;
   handleDeleteData: (title: string) => void;
+  url?: string;
+  handleDownload: (url: string, imageTitle: string) => Promise<void>;
 }
 
-const ImageCard = ({ imgSrc, title, handleDeleteData }: Props) => {
+const ImageCard = ({
+  imgSrc,
+  title,
+  handleDeleteData,
+  url,
+  handleDownload,
+}: Props) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const handleDelete = (title: string, e: React.MouseEvent) => {
     handleDeleteData(title);
@@ -37,14 +45,14 @@ const ImageCard = ({ imgSrc, title, handleDeleteData }: Props) => {
         {/* Overlay */}
         <div className='absolute inset-0 bg-black bg-opacity-50 p-4 rounded-[16px] flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out'>
           <div className='flex items-center justify-between w-full absolute top-2 pr-6'>
-            <p className='text-white font-semibold'>Creator</p>
+            <p className='text-white font-semibold text-sm'>{title}</p>
             {/* <Button className='bg-[#e60023] text-white rounded-full text-[13px] px-5 flex items-center justify-center font-bold hover:bg-[#ad081b]'>
               Save
             </Button> */}
           </div>
           <div className='flex absolute bottom-4 justify-between w-full pr-6'>
             <span className='rounded-full py-[6px] px-4 bg-secondary font-semibold cursor-pointer text-sm flex items-center justify-center hover:bg-bg'>
-              twitter.com
+              {url}
             </span>
             <div className='flex items-center space-x-2'>
               <Button
@@ -56,7 +64,11 @@ const ImageCard = ({ imgSrc, title, handleDeleteData }: Props) => {
                   <LuTrash2 size={18} />
                 </span>
               </Button>
-              <Menu />
+              <Menu
+                handleDownload={handleDownload}
+                title={title}
+                url={imgSrc}
+              />
             </div>
           </div>
         </div>
