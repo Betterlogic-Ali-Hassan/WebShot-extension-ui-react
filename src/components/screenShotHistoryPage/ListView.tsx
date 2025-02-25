@@ -8,61 +8,57 @@ import {
 } from "@/components/ui/table";
 
 import { Checkbox } from "../ui/checkbox";
-import { data } from "@/constant/imagesData";
 import { cn } from "@/lib/utils";
-
-const ListView = () => {
+import Menu from "./Menu";
+interface Props {
+  tableData: {
+    id: number;
+    imgSrc: string;
+    title: string;
+    projectTag: string;
+    domain: string;
+    date: string;
+  }[];
+}
+const ListView = ({ tableData }: Props) => {
   return (
     <div className='px-4 mt-6'>
       <Table className='w-full'>
         <TableHeader>
           <TableRow className='bg-transparent hover:bg-bg'>
             <TableHead
-              className={cn(
-                "min-[1400px]:w-[400px] w-[200px] text-dark font-medium"
-              )}
+              className={cn("min-[1400px]:w-[400px] w-[200px] text-dark ")}
             >
               Item
             </TableHead>
             <TableHead
               className={cn(
-                "text-dark font-medium whitespace-nowrap min-[1400px]:w-[200px] w-[160px]"
+                "text-dark  whitespace-nowrap min-[1400px]:w-[200px] w-[160px]"
               )}
             >
-              Current Price
+              Domain
             </TableHead>
             <TableHead
-              className={cn(
-                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium"
-              )}
+              className={cn("w-[160px] min-[1400px]:w-[200px] text-dark ")}
             >
-              Best Offer
+              Date
             </TableHead>
             <TableHead
-              className={cn(
-                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium"
-              )}
+              className={cn("w-[160px] min-[1400px]:w-[200px] text-dark ")}
             >
-              Last Sale
+              Project Tag
             </TableHead>
             <TableHead
-              className={cn(
-                "w-[160px] min-[1400px]:w-[200px] text-dark font-medium"
-              )}
-            >
-              Owner
-            </TableHead>
-            <TableHead className='text-dark font-medium whitespace-nowrap'>
-              Time Listed
-            </TableHead>
+              className={cn("w-[160px] min-[1400px]:w-[200px] text-dark ")}
+            ></TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data.map((item) => (
-            <TableRow key={item.id} className='cursor-pointer'>
+          {tableData.map((item) => (
+            <TableRow key={item.id}>
               <TableCell className='flex  items-center '>
                 <Checkbox
-                  id='eth'
+                  id='img'
                   className='h-6 w-6 rounded-md border-border border mr-[40px]'
                 />
                 <div className='flex items-center gap-2'>
@@ -78,19 +74,22 @@ const ListView = () => {
                   </span>
                 </div>
               </TableCell>
-              <TableCell className='font-medium whitespace-nowrap'>
-                {item.currentPrice}
+              <TableCell className=' whitespace-nowrap'>
+                <a
+                  href={item.domain}
+                  target='_blank'
+                  className='hover:underline text-blue-600 active:text-blue-600 '
+                >
+                  {item.domain}
+                </a>
               </TableCell>
-              <TableCell className='font-medium whitespace-nowrap'>
-                {item.bestOffer}
+              <TableCell className=' whitespace-nowrap'>{item.date}</TableCell>
+              <TableCell className=' whitespace-nowrap'>
+                {item.projectTag}
               </TableCell>
-              <TableCell className='font-medium whitespace-nowrap'>
-                {item.lastSale}
+              <TableCell className=' whitespace-nowrap'>
+                <Menu className='bg-transparent hover:bg-secondary' />
               </TableCell>
-              <TableCell className='font-medium text-[#2081E2]'>
-                {item.owner}
-              </TableCell>
-              <TableCell className='font-medium'>{item.timeListed}</TableCell>
             </TableRow>
           ))}
         </TableBody>

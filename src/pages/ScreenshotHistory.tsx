@@ -2,6 +2,7 @@
 import Images from "@/components/screenShotHistoryPage/Images";
 import Topbar from "@/components/screenShotHistoryPage/Topbar";
 import { images } from "@/constant/AllImages";
+import { data } from "@/constant/imagesData";
 import { useState } from "react";
 
 const ScreenshotHistory = () => {
@@ -17,7 +18,9 @@ const ScreenshotHistory = () => {
   const filteredImages = updatedImagesData.filter((image) =>
     image.title.toLowerCase().includes(searchValue.toLowerCase())
   );
-
+  const tableImagesFilter = data.filter((image) =>
+    image.title.toLowerCase().includes(searchValue.toLowerCase())
+  );
   return (
     <div>
       <Topbar
@@ -26,6 +29,7 @@ const ScreenshotHistory = () => {
         setSearchValue={setSearchValue}
       />
       <Images
+        tableData={tableImagesFilter}
         listView={listView}
         images={filteredImages}
         handleDeleteData={handleDeleteData}

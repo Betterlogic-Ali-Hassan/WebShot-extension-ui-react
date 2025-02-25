@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { LucideMoreHorizontal, X } from "lucide-react";
+import { X } from "lucide-react";
 import { LuTrash2 } from "react-icons/lu";
 import {
   AlertDialog,
@@ -9,6 +9,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import Menu from "./Menu";
 
 interface Props {
   imgSrc: string;
@@ -37,9 +38,9 @@ const ImageCard = ({ imgSrc, title, handleDeleteData }: Props) => {
         <div className='absolute inset-0 bg-black bg-opacity-50 p-4 rounded-[16px] flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out'>
           <div className='flex items-center justify-between w-full absolute top-2 pr-6'>
             <p className='text-white font-semibold'>Creator</p>
-            <Button className='bg-[#e60023] text-white rounded-full text-[13px] px-5 flex items-center justify-center font-bold hover:bg-[#ad081b]'>
+            {/* <Button className='bg-[#e60023] text-white rounded-full text-[13px] px-5 flex items-center justify-center font-bold hover:bg-[#ad081b]'>
               Save
-            </Button>
+            </Button> */}
           </div>
           <div className='flex absolute bottom-4 justify-between w-full pr-6'>
             <span className='rounded-full py-[6px] px-4 bg-secondary font-semibold cursor-pointer text-sm flex items-center justify-center hover:bg-bg'>
@@ -55,14 +56,7 @@ const ImageCard = ({ imgSrc, title, handleDeleteData }: Props) => {
                   <LuTrash2 size={18} />
                 </span>
               </Button>
-              <Button
-                variant='secondary'
-                className='rounded-full h-9 w-9 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0'
-              >
-                <span>
-                  <LucideMoreHorizontal size={18} />
-                </span>
-              </Button>
+              <Menu />
             </div>
           </div>
         </div>

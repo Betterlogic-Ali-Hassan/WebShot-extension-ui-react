@@ -10,21 +10,22 @@ interface Props {
     title: string;
   }[];
   handleDeleteData: (title: string) => void;
+  tableData: {
+    id: number;
+    imgSrc: string;
+    title: string;
+    projectTag: string;
+    domain: string;
+    date: string;
+  }[];
 }
 
-const Images = ({ listView, images, handleDeleteData }: Props) => {
-  // const breakpointColumnsObj = {
-  //   default: filter ? 3 : 4, // Default number of columns
-  //   1100: 3, // 2 columns for window width <= 1100px
-  //   700: 2, // 1 column for window width <= 700px
-  //   600: 1, // 1 column for window width <= 700px
-  // };
-
+const Images = ({ listView, images, handleDeleteData, tableData }: Props) => {
   return (
     <>
       <div className='px-6 pt-6'>
         {listView ? (
-          <ListView />
+          <ListView tableData={tableData} />
         ) : (
           <div className='min-[1600px]:columns-6 columns-5  max-[1200px]:columns-3 max-md:columns-2  max-[400px]:columns-1'>
             {images.map((image, index) => (
