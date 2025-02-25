@@ -4,6 +4,7 @@ import ProgressBar from "@/components/ProgressBar";
 import { cn } from "@/lib/utils";
 import { Copy } from "lucide-react";
 import { useState, useRef } from "react";
+import { ToastClose } from "../ui/toast";
 
 const ShareToast = () => {
   const [copy, setCopy] = useState(false);
@@ -57,6 +58,7 @@ const ShareToast = () => {
             )}
           </button>
         </div>
+        <ToastClose />
       </div>
       <ProgressBar text onProgressComplete={handleProgressComplete} />
     </>

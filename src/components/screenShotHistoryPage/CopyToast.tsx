@@ -1,4 +1,5 @@
 import { IoIosCheckmarkCircle } from "react-icons/io";
+import { ToastClose } from "../ui/toast";
 
 const CopyToast = () => {
   return (
@@ -7,6 +8,7 @@ const CopyToast = () => {
         <IoIosCheckmarkCircle size={18} />
         Image copied to clipboard successfully!
       </h2>
+      <ToastClose />
     </div>
   );
 };
