@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LucideMoreHorizontal, X } from "lucide-react";
-import { LuUpload } from "react-icons/lu";
+import { LuTrash2 } from "react-icons/lu";
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -10,9 +10,18 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 
-const ImageCard = ({ imgSrc, title }: { imgSrc: string; title: string }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+interface Props {
+  imgSrc: string;
+  title: string;
+  handleDeleteData: (title: string) => void;
+}
 
+const ImageCard = ({ imgSrc, title, handleDeleteData }: Props) => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const handleDelete = (title: string, e: React.MouseEvent) => {
+    handleDeleteData(title);
+    e.stopPropagation();
+  };
   return (
     <div className='relative overflow-hidden rounded-lg group break-inside-avoid mb-3'>
       <div
@@ -40,9 +49,10 @@ const ImageCard = ({ imgSrc, title }: { imgSrc: string; title: string }) => {
               <Button
                 variant='secondary'
                 className='rounded-full h-9 w-9 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0'
+                onClick={(e) => handleDelete(title, e)}
               >
                 <span>
-                  <LuUpload size={18} />
+                  <LuTrash2 size={18} />
                 </span>
               </Button>
               <Button

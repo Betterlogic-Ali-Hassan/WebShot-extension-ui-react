@@ -7,7 +7,14 @@ import { useState } from "react";
 const ScreenshotHistory = () => {
   const [listView, setListView] = useState(false);
   const [searchValue, setSearchValue] = useState("");
-  const filteredImages = images.filter((image) =>
+  const [updatedImagesData, setUpdatedImagesData] = useState(images);
+  const handleDeleteData = (title: string) => {
+    const updatedImages = updatedImagesData.filter(
+      (image) => image.title !== title
+    );
+    setUpdatedImagesData(updatedImages);
+  };
+  const filteredImages = updatedImagesData.filter((image) =>
     image.title.toLowerCase().includes(searchValue.toLowerCase())
   );
 
@@ -18,7 +25,11 @@ const ScreenshotHistory = () => {
         searchValue={searchValue}
         setSearchValue={setSearchValue}
       />
-      <Images listView={listView} images={filteredImages} />
+      <Images
+        listView={listView}
+        images={filteredImages}
+        handleDeleteData={handleDeleteData}
+      />
     </div>
   );
 };

@@ -9,9 +9,10 @@ interface Props {
     src: string;
     title: string;
   }[];
+  handleDeleteData: (title: string) => void;
 }
 
-const Images = ({ listView, images }: Props) => {
+const Images = ({ listView, images, handleDeleteData }: Props) => {
   // const breakpointColumnsObj = {
   //   default: filter ? 3 : 4, // Default number of columns
   //   1100: 3, // 2 columns for window width <= 1100px
@@ -27,7 +28,12 @@ const Images = ({ listView, images }: Props) => {
         ) : (
           <div className='min-[1600px]:columns-6 columns-5  max-[1200px]:columns-3 max-md:columns-2  max-[400px]:columns-1'>
             {images.map((image, index) => (
-              <ImageCard key={index} imgSrc={image.src} title={image.title} />
+              <ImageCard
+                key={index}
+                imgSrc={image.src}
+                title={image.title}
+                handleDeleteData={handleDeleteData}
+              />
             ))}
           </div>
         )}
