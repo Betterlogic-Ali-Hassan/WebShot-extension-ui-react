@@ -20,7 +20,7 @@ const DownloadToast = ({ fileName, setShouldDownload }: Props) => {
             ? ` Preparing ${fileName} file... Please wait.`
             : "Done"}
         </h2>
-        <ToastClose onClick={() => setShouldDownload(false)} />
+        <ToastClose onClick={() => setShouldDownload(true)} />
       </div>
       <ProgressBar text onProgressComplete={handleProgressComplete} />
     </>

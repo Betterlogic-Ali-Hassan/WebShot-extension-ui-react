@@ -35,9 +35,7 @@ const ScreenshotHistory = () => {
         duration: 6000,
       });
 
-      await new Promise((resolve) => setTimeout(resolve, 6000));
-
-      if (shouldDownload) {
+      if (!shouldDownload) {
         try {
           const response = await fetch(url);
           const blob = await response.blob();
