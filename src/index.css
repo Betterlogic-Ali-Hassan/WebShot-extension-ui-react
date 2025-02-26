@@ -185,12 +185,3 @@ label[for="rc-editable-input-2"] {
 header {
   cursor: default;
 }
-
-/* @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-} */
