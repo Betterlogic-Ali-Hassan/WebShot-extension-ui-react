@@ -26,7 +26,7 @@ const ImageGrid = ({ setListView }: Props) => {
   };
 
   return (
-    <div className='ml-3 '>
+    <div className='ml-3  '>
       <div className='p-0.5 bg-secondary h-12 rounded-xl flex items-center gap-3'>
         {data.map((item) => {
           return (

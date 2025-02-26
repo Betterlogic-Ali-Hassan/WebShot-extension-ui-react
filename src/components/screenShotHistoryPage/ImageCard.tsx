@@ -1,7 +1,5 @@
 import { useState } from "react";
-import { Button } from "@/components/ui/button";
 import { X } from "lucide-react";
-import { LuTrash2 } from "react-icons/lu";
 import {
   AlertDialog,
   AlertDialogTrigger,
@@ -10,27 +8,25 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import Menu from "./Menu";
+import DeleteConfirmation from "./DeleteConfirmation";
 
 interface Props {
   imgSrc: string;
   title: string;
-  handleDeleteData: (title: string) => void;
+  handleDeleteData: (id: string) => void;
   url?: string;
   handleDownload: (url: string, imageTitle: string) => Promise<void>;
+  id: string;
 }
 
 const ImageCard = ({
   imgSrc,
   title,
   handleDeleteData,
-
   handleDownload,
+  id,
 }: Props) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const handleDelete = (title: string, e: React.MouseEvent) => {
-    handleDeleteData(title);
-    e.stopPropagation();
-  };
   return (
     <div className='relative overflow-hidden rounded-lg group break-inside-avoid mb-3'>
       <div
@@ -55,15 +51,7 @@ const ImageCard = ({
               twitter.com
             </span>
             <div className='flex items-center space-x-2'>
-              <Button
-                variant='secondary'
-                className='rounded-full h-9 w-9 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0'
-                onClick={(e) => handleDelete(title, e)}
-              >
-                <span>
-                  <LuTrash2 size={18} />
-                </span>
-              </Button>
+              <DeleteConfirmation handleDeleteData={handleDeleteData} id={id} />
               <Menu
                 handleDownload={handleDownload}
                 title={title}
