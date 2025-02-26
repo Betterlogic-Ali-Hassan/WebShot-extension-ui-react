@@ -42,7 +42,7 @@ const Menu = ({ className, title, url, handleDownload }: Props) => {
       <DropdownMenuTrigger asChild onClick={(e) => e.stopPropagation()}>
         <Button
           className={cn(
-            "rounded-full h-9 w-9 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0",
+            "rounded-full sm:h-9 sm:w-9 h-8 w-8 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0",
             className
           )}
         >

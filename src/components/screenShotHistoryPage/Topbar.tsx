@@ -20,7 +20,7 @@ const Topbar = ({
   page,
 }: Props) => {
   return (
-    <div className=' px-4 flex items-center max-[400px]:flex-col gap-3 max-[400px]:items-start bg-bg h-[100px] fixed top-0 w-full z-50  '>
+    <div className=' px-4 flex items-center max-[400px]:flex-col gap-3 max-[400px]:items-start bg-bg min-h-[100px] py-3 fixed top-0 w-full z-50  '>
       <div className='mx-3 w-full'>
         <ImageSearch
           loading={loading}

@@ -23,7 +23,7 @@ const DeleteConfirmation = ({ handleDeleteData, id }: Props) => {
     <AlertDialog>
       <AlertDialogTrigger
         onClick={(e) => e.stopPropagation()}
-        className='rounded-full h-9 w-9 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0'
+        className='rounded-full sm:h-9 sm:w-9 h-8 w-8 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0'
       >
         <span>
           <LuTrash2 size={18} />

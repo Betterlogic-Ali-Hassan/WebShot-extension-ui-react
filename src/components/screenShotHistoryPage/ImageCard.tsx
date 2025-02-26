@@ -41,7 +41,7 @@ const ImageCard = ({
           className='w-full max-[1600px]:max-h-[450px] max-h-[650px] h-auto max-w-full  object-cover rounded-[16px]'
         />
         {/* Overlay */}
-        <div className='absolute inset-0 bg-black bg-opacity-50 p-4 rounded-[16px] flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out'>
+        <div className='absolute inset-0 bg-black bg-opacity-50 sm:p-4 px-2 rounded-[16px] flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out'>
           <div className='flex items-center justify-between w-full absolute top-2 pr-6'>
             <p className='text-white font-semibold text-sm truncate max-w-[200px] capitalize'>
               {alt_description}
@@ -51,7 +51,7 @@ const ImageCard = ({
             </Button> */}
           </div>
           <div className='flex absolute bottom-4 justify-between w-full pr-6'>
-            <span className='rounded-full py-[6px] px-4 bg-secondary font-semibold cursor-pointer text-sm flex items-center justify-center hover:bg-bg'>
+            <span className='rounded-full sm:py-[6px] sm:px-4 bg-secondary font-semibold cursor-pointer text-sm flex items-center justify-center hover:bg-bg max-sm:text-xs px-3 py-1 '>
               twitter.com
             </span>
             <div className='flex items-center space-x-2'>
