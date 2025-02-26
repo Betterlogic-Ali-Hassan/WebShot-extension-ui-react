@@ -44,13 +44,13 @@ const ListView = ({ imagesData, handleDownload }: Props) => {
                 <div className='flex items-center gap-2'>
                   <img
                     src={image.urls.regular}
-                    alt={image.title}
+                    alt={image.alt_description}
                     height={40}
                     width={40}
                     className='rounded-md h-[40px] w-[40px] object-cover'
                   />
-                  <span className='font-semibold text-sm truncate whitespace-nowrap w-[150px]'>
-                    {image.title}
+                  <span className='font-semibold text-sm truncate whitespace-nowrap w-[150px] capitalize'>
+                    {image.alt_description}
                   </span>
                 </div>
               </TableCell>

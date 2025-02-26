@@ -47,23 +47,23 @@ const Menu = ({ className, title, url, handleDownload }: Props) => {
           )}
         >
           <span>
-            <LucideMoreHorizontal size={18} />
+            <LucideMoreHorizontal size={20} />
           </span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className='bg-bg'>
+      <DropdownMenuContent className='bg-bg '>
         <DropdownMenuItem
           className='flex items-center gap-2'
           onClick={(e) => e.stopPropagation()}
         >
-          <MdEdit size={18} />
+          <MdEdit size={20} />
           Edit
         </DropdownMenuItem>
         <DropdownMenuItem
           className='flex items-center gap-2'
           onClick={handleShare}
         >
-          <IoMdShare size={18} />
+          <IoMdShare size={20} />
           Share
         </DropdownMenuItem>
         <DropdownMenuItem
@@ -73,14 +73,14 @@ const Menu = ({ className, title, url, handleDownload }: Props) => {
             e.stopPropagation();
           }}
         >
-          <IoMdArrowDown size={18} />
+          <IoMdArrowDown size={20} />
           Download
         </DropdownMenuItem>
         <DropdownMenuItem
           className='flex items-center gap-2'
           onClick={handleCopy}
         >
-          <MdContentCopy size={18} />
+          <MdContentCopy size={19} />
           Copy
         </DropdownMenuItem>
       </DropdownMenuContent>

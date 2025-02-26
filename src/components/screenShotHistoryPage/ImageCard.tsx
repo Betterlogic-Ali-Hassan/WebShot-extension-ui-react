@@ -17,6 +17,7 @@ interface Props {
   url?: string;
   handleDownload: (url: string, imageTitle: string) => Promise<void>;
   id: string;
+  alt_description?: string;
 }
 
 const ImageCard = ({
@@ -25,6 +26,7 @@ const ImageCard = ({
   handleDeleteData,
   handleDownload,
   id,
+  alt_description,
 }: Props) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   return (
@@ -41,7 +43,9 @@ const ImageCard = ({
         {/* Overlay */}
         <div className='absolute inset-0 bg-black bg-opacity-50 p-4 rounded-[16px] flex justify-between items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out'>
           <div className='flex items-center justify-between w-full absolute top-2 pr-6'>
-            <p className='text-white font-semibold text-sm'>{title}</p>
+            <p className='text-white font-semibold text-sm truncate max-w-[200px] capitalize'>
+              {alt_description}
+            </p>
             {/* <Button className='bg-[#e60023] text-white rounded-full text-[13px] px-5 flex items-center justify-center font-bold hover:bg-[#ad081b]'>
               Save
             </Button> */}
