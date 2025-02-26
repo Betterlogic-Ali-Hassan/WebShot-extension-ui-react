@@ -185,3 +185,15 @@ label[for="rc-editable-input-2"] {
 header {
   cursor: default;
 }
+.my-masonry-grid {
+  display: flex;
+  margin-left: -30px; /* gutter size offset */
+  width: auto;
+}
+.my-masonry-grid_column {
+  padding-left: 12px; /* gutter size */
+}
+
+.my-masonry-grid_column > div {
+  margin-bottom: 12px;
+}

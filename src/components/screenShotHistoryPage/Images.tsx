@@ -1,5 +1,5 @@
 "use client";
-
+import Masonry from "react-masonry-css";
 import { UnsplashImage } from "@/types/ImageType";
 import ImageCard from "./ImageCard";
 import ListView from "./ListView";
@@ -17,6 +17,12 @@ const Images = ({
   images,
   handleDownload,
 }: Props) => {
+  const breakpointColumnsObj = {
+    default: 5, // Default number of columns
+    1100: 3, // 2 columns for window width <= 1100px
+    700: 2, // 1 column for window width <= 700px
+    600: 1, // 1 column for window width <= 700px
+  };
   return (
     <>
       <div className='px-6 pt-[100px]'>
@@ -27,7 +33,11 @@ const Images = ({
             handleDelete={handleDeleteData}
           />
         ) : (
-          <div className='min-[1600px]:columns-6 columns-5  max-[1200px]:columns-3 max-md:columns-2  max-[400px]:columns-1'>
+          <Masonry
+            breakpointCols={breakpointColumnsObj}
+            className='my-masonry-grid px-4'
+            columnClassName='my-masonry-grid_column'
+          >
             {images.map((image, index) => (
               <ImageCard
                 alt_description={image.alt_description}
@@ -40,7 +50,7 @@ const Images = ({
                 handleDeleteData={handleDeleteData}
               />
             ))}
-          </div>
+          </Masonry>
         )}
       </div>
     </>
