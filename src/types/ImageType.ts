@@ -3,6 +3,7 @@ export type UnsplashImage = {
     id: string
     urls: {
       regular: string
+      thumb:string
     }
     alt_description: string
     user: {

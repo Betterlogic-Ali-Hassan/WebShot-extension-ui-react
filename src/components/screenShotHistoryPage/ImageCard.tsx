@@ -55,8 +55,14 @@ const ImageCard = ({
               twitter.com
             </span>
             <div className='flex items-center space-x-2'>
-              <DeleteConfirmation handleDeleteData={handleDeleteData} id={id} />
+              <DeleteConfirmation
+                handleDeleteData={handleDeleteData}
+                id={id}
+                className='rounded-full sm:h-9 sm:w-9 h-8 w-8 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0'
+              />
               <Menu
+                handleDeleteData={handleDeleteData}
+                id={id}
                 handleDownload={handleDownload}
                 title={title}
                 url={imgSrc}
@@ -73,8 +79,8 @@ const ImageCard = ({
         </AlertDialogTrigger>
         <AlertDialogContent className='max-w-lg w-full h-auto max-h-[80vh] bg-transparent text-white shadow-none outline-none border-none'>
           <AlertDialogHeader>
-            <AlertDialogTitle className='flex items-center justify-between'>
-              {title}
+            <AlertDialogTitle className='flex items-center justify-between  '>
+              <span className='truncate max-w-[250px]'>{alt_description}</span>
               <span
                 className='bg-card hover:bg-secondary text-dark h-9 w-9 flex items-center justify-center rounded-full cursor-pointer transition duration-300'
                 onClick={() => setIsDialogOpen(false)}

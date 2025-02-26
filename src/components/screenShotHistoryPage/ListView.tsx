@@ -12,13 +12,24 @@ import { cn } from "@/lib/utils";
 import Menu from "./Menu";
 import { UnsplashImage } from "@/types/ImageType";
 import { formatDate } from "@/lib/formatDate";
+import ActionToolbar from "./ActionToolbar";
+import { useState } from "react";
 interface Props {
   imagesData: UnsplashImage[];
   handleDownload: (url: string, imageTitle: string) => Promise<void>;
+  handleDelete: (id: string) => void;
 }
-const ListView = ({ imagesData, handleDownload }: Props) => {
+const ListView = ({ imagesData, handleDownload, handleDelete }: Props) => {
+  const [checkedBoxes, setCheckedBoxes] = useState<boolean[]>([]);
+
+  const handleCheckboxChange = (index: number) => {
+    const newCheckedBoxes = [...checkedBoxes];
+    newCheckedBoxes[index] = !newCheckedBoxes[index];
+    setCheckedBoxes(newCheckedBoxes);
+  };
+  const checkedCount = checkedBoxes.filter(Boolean).length;
   return (
-    <div className='px-4 mt-6'>
+    <div className='px-4 mt-6 relative'>
       <Table className='w-full'>
         <TableHeader>
           <TableRow className='bg-transparent hover:bg-bg'>
@@ -38,7 +49,8 @@ const ListView = ({ imagesData, handleDownload }: Props) => {
             <TableRow key={i}>
               <TableCell className='flex  items-center '>
                 <Checkbox
-                  id='img'
+                  id={`checkbox-${i}`}
+                  onCheckedChange={() => handleCheckboxChange(i)}
                   className='h-6 w-6 rounded-md border-border border mr-[40px]'
                 />
                 <div className='flex items-center gap-2'>
@@ -71,6 +83,9 @@ const ListView = ({ imagesData, handleDownload }: Props) => {
               </TableCell>
               <TableCell className=' whitespace-nowrap'>
                 <Menu
+                  id={image.id}
+                  handleDeleteData={handleDelete}
+                  deleteBtn
                   className='bg-transparent hover:bg-secondary'
                   handleDownload={handleDownload}
                   title={image.title}
@@ -81,6 +96,7 @@ const ListView = ({ imagesData, handleDownload }: Props) => {
           ))}
         </TableBody>
       </Table>
+      <ActionToolbar checkedCount={checkedCount} />
     </div>
   );
 };

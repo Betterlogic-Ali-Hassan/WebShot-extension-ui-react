@@ -17,10 +17,14 @@ const ScreenshotHistory = () => {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({
+    threshold: 0,
+    rootMargin: "200px",
+  });
   const { toast } = useToast();
   const fetchImages = useCallback(
     async (searchQuery: string, pageNumber: number) => {
+      if (loading) return;
       try {
         setLoading(true);
         const response = await unsplashApi.get("/search/photos", {
@@ -50,30 +54,23 @@ const ScreenshotHistory = () => {
         setLoading(false);
       }
     },
-    []
+    [loading]
   );
+  useEffect(() => {
+    fetchImages(query, 1);
+  }, []);
   const searchImages = async (e: React.FormEvent) => {
     e.preventDefault();
     setPage(1);
     await fetchImages(query, 1);
   };
 
-  const loadMore = useCallback(async () => {
-    if (!loading && hasMore) {
-      const nextPage = page + 1;
-      setPage(nextPage);
-      await fetchImages(query, nextPage);
-    }
-  }, [loading, hasMore, page, query, fetchImages]);
-
   useEffect(() => {
-    if (inView) {
-      loadMore();
+    if (inView && hasMore && !loading) {
+      setPage((prev) => prev + 1);
+      fetchImages(query, page + 1);
     }
-  }, [inView, loadMore]);
-  useEffect(() => {
-    fetchImages(query, 1);
-  }, [fetchImages]);
+  }, [inView, hasMore, loading]);
 
   const deleteImage = (id: string) => {
     setImages(images.filter((image) => image.id !== id));

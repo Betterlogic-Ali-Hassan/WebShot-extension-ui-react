@@ -10,25 +10,29 @@ import { MdContentCopy, MdEdit } from "react-icons/md";
 import { IoMdArrowDown, IoMdShare } from "react-icons/io";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
-import CopyToast from "./CopyToast";
-
 import ShareToast from "./ShareLink";
+import { handleImageCopy } from "@/lib/ImageCopytoClipBoard";
+import DeleteConfirmation from "./DeleteConfirmation";
 interface Props {
   handleDownload: (url: string, imageTitle: string) => Promise<void>;
   className?: string;
   title: string;
   url: string;
+  handleDeleteData: (id: string) => void;
+  id: string;
+  deleteBtn?: boolean;
 }
-const Menu = ({ className, title, url, handleDownload }: Props) => {
+
+const Menu = ({
+  className,
+  title,
+  url,
+  handleDownload,
+  handleDeleteData,
+  id,
+  deleteBtn,
+}: Props) => {
   const { toast } = useToast();
-  const handleCopy = (event: React.MouseEvent<HTMLDivElement>) => {
-    navigator.clipboard.writeText(url);
-    toast({
-      description: <CopyToast />,
-      duration: 3000,
-    });
-    event.stopPropagation();
-  };
 
   const handleShare = (event: React.MouseEvent<HTMLDivElement>) => {
     toast({
@@ -78,11 +82,19 @@ const Menu = ({ className, title, url, handleDownload }: Props) => {
         </DropdownMenuItem>
         <DropdownMenuItem
           className='flex items-center gap-2'
-          onClick={handleCopy}
+          onClick={(e) => handleImageCopy(e, url)}
         >
           <MdContentCopy size={19} />
           Copy
         </DropdownMenuItem>
+        {deleteBtn && (
+          <DeleteConfirmation
+            className='flex items-center gap-2 relative  cursor-pointer select-none w-full rounded-md text-base px-2 py-2 font-semibold outline-none transition-colors hover:bg-secondary data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&_svg]:pointer-events-none  [&_svg]:shrink-0'
+            id={id}
+            handleDeleteData={handleDeleteData}
+            allowText
+          />
+        )}
       </DropdownMenuContent>
     </DropdownMenu>
   );

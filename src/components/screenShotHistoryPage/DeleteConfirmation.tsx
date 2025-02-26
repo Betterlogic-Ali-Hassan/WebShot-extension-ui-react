@@ -8,13 +8,22 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { cn } from "@/lib/utils";
 import { LuTrash2 } from "react-icons/lu";
+import { AlertDescription } from "../ui/alert";
 
 interface Props {
   handleDeleteData: (id: string) => void;
   id: string;
+  allowText?: boolean;
+  className?: string;
 }
-const DeleteConfirmation = ({ handleDeleteData, id }: Props) => {
+const DeleteConfirmation = ({
+  handleDeleteData,
+  id,
+  allowText,
+  className,
+}: Props) => {
   const handleDelete = (id: string, e: React.MouseEvent) => {
     handleDeleteData(id);
     e.stopPropagation();
@@ -23,11 +32,12 @@ const DeleteConfirmation = ({ handleDeleteData, id }: Props) => {
     <AlertDialog>
       <AlertDialogTrigger
         onClick={(e) => e.stopPropagation()}
-        className='rounded-full sm:h-9 sm:w-9 h-8 w-8 flex items-center justify-center bg-secondary hover:bg-bg border-none shrink-0'
+        className={cn(className)}
       >
         <span>
           <LuTrash2 size={18} />
         </span>
+        {allowText && "Delete"}
       </AlertDialogTrigger>
       <AlertDialogContent className='bg-white dark:bg-neutral-800 px-4 pb-4 pt-5 text-left shadow-xl dark:shadow-black/90 transition-all sm:my-8 w-full sm:p-6'>
         <AlertDialogHeader>
@@ -62,6 +72,7 @@ const DeleteConfirmation = ({ handleDeleteData, id }: Props) => {
               </div>
             </div>
           </AlertDialogTitle>
+          <AlertDescription></AlertDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogAction
