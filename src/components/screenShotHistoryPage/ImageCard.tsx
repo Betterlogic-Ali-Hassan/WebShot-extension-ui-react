@@ -50,8 +50,8 @@ const ImageCard = ({
               Save
             </Button> */}
           </div>
-          <div className='flex absolute bottom-4 justify-between w-full pr-6'>
-            <span className='rounded-full sm:py-[6px] sm:px-4 bg-secondary font-semibold cursor-pointer text-sm flex items-center justify-center hover:bg-bg max-sm:text-xs px-3 py-1 '>
+          <div className='flex absolute bottom-4 justify-between w-full pr-4 sm:pr-6'>
+            <span className='rounded-full sm:py-[6px] sm:px-4 bg-secondary font-semibold cursor-pointer text-sm flex items-center justify-center hover:bg-bg max-sm:text-xs px-2 py-1 '>
               twitter.com
             </span>
             <div className='flex items-center space-x-2'>
